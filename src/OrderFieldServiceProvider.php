@@ -20,6 +20,13 @@ class OrderFieldServiceProvider extends ServiceProvider
             Nova::script('order-field', __DIR__.'/../dist/js/field.js');
         });
 
+        Nova::router()
+            ->group(function ($router) {
+                $router->get('index-order-field', function ($request) {
+                    return inertia('IndexOrderField');
+                });
+            });
+
         $this->app->booted(function () {
             $this->loadRoutes();
         });
@@ -32,6 +39,13 @@ class OrderFieldServiceProvider extends ServiceProvider
      */
     protected function loadRoutes()
     {
+        Nova::router()
+            ->group(function ($router) {
+                $router->get('index-order-field', function ($request) {
+                    return inertia('IndexOrderField');
+                });
+            });
+
         if ($this->app->routesAreCached()) {
             return;
         }
